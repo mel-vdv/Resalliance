@@ -1,5 +1,9 @@
 # Resalliance
 
+## video démo:
+
+*https://www.youtube.com/watch?v=YkDsI6oYFAg*
+
 ## synthèse des fonctionnalités:
 
 * Gestion des sessions utilisateurs (mdp requis): inscription/co/déconnexion de membres visiteur/inscrit/administrateur
