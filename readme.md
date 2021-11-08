@@ -1,8 +1,7 @@
 # Resalliance
 
 ## video démo:
-
-*https://www.youtube.com/watch?v=YkDsI6oYFAg*
+*https://youtu.be/YkDsI6oYFAg*
 
 ## synthèse des fonctionnalités:
 
