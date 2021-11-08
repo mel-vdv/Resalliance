@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class=" gris"><a routerLink='/'><img src="./../../../assets/maison4.png" alt=""> <span>ACCUEIL</span> </a>
+    </div>
+
+    <div class=" grisclair">
+
+
+        <div class="vert">
+
+            <div *ngIf="error" class="error">
+                <p>Pseudo et/ou mdp non reconnus.</p> 
+                <p>Veuillez recommencer.</p> 
+            </div>
+            <form #formInscr="ngForm" autocomplete="on" (ngSubmit)="validerSaisie(formInscr)">
+                <label>pseudo
+                    <input [(ngModel)]="saisie.pseudo" type="text" name="pseudo">
+                </label> <br><br>
+                <label>mdp
+                    <input [(ngModel)]="saisie.mdp" type="password" name="mdp">
+                </label><br><br>
+
+                <input class="submit" type="submit" value="CONNEXION">
+            </form>
+            <br><br>
+            <a routerLink="/mdp">
+                <button *ngIf="error" class="error">
+                    mot de passe oublié?
+                </button>
+            </a>
+        </div>
+
+
+    </div>
+
+</div>

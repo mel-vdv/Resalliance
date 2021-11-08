@@ -1,0 +1,55 @@
+//LES COULEURS :hover
+.gris{
+    background-color: rgb(84,84,84);
+     height: 10vh;
+}
+.grisclair {
+    background-color:rgb(181,181,181);    
+   
+}
+.beige{
+    background-color: rgb(252,246,229);
+
+}
+h2{
+    color: rgb(204,232,204);
+  
+}
+a{
+    color:rgb(252,246,229);
+    text-decoration: none;
+    font-weight: bold;
+}
+.titre{
+    color: rgb(252,246,229);
+    font-weight: bold;
+}
+a:hover{
+    text-decoration: none;
+    color: white;
+    
+}
+a> img{
+    max-height: 10vh;
+}
+span{
+    display: none;
+}
+a> img:hover + span{
+    display: inline-block;
+}
+.contenu{
+   margin: auto;
+   
+   color: rgb(252,246,229);
+   letter-spacing: 0.2em;
+}
+.centre{
+    height: 80vh;
+}
+@media only screen and (min-width: 600px){
+    .poignee img{
+    height: 35vh;
+}
+
+}

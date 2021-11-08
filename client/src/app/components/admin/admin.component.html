@@ -1,0 +1,133 @@
+<div class="container-fluid vert">
+    <div class="row navig grisclair">
+        <div><a routerLink="/"><img src="./../../../assets/maison1.png" alt="accueil"></a></div>
+    </div>
+    <div class="row centre">
+        <!-- espace VISITEUR-->
+
+        <div class="col-12 col-md-3 visiteur">
+            <h2>espace visiteur: </h2>
+            <p *ngIf="messageVisibleVisiteur">{{messageVisiteur}} <img (click)="fermer2()"
+                    src="./../../../assets/suppr.png" alt="fermer"></p>
+            <div class="row ">
+                <div class="col-12">
+                    <img src="./../../../assets/total2.png" alt="membres d'un groupe">membres inscrits : {{nbMbTotal}}
+                    <br>
+                    <img src="./../../../assets/connect2.png" alt="membre connecté">membres connectés : {{nbMbConnect}}
+                    <br>
+                    <img src="./../../../assets/publi.png" alt="publication">commentaires publiés : {{nbComm}} <br>
+                    <img src="./../../../assets/enveloppe2.png" alt="enveloppe">messages privés : {{nbMsg}} <br>
+                    <img src="./../../../assets/bulles.png" alt="bulle de conversation">échanges sur le chat :
+                    {{nbChat}} <br>
+                </div>
+            </div>
+        </div>
+
+        <!-- espace ADMINISTRATEUR -->
+        <div class="col-12 col-md-9 admin">
+            <h2>espace administrateur: </h2>
+            <!-- 1/ form connexion-->
+            <div *ngIf="!admin" class="form">
+                <div> PSEUDO :<br>
+                    <input [(ngModel)]="saisie.pseudo" type="text" name="pseudo">
+                </div>
+
+                <div> MOT DE PASSE :<br>
+                    <input [(ngModel)]="saisie.mdp" type="password" name="mdp">
+                </div>
+                <br>
+
+                <button (click)='verif()'>CONNEXION</button>
+            </div>
+            <!-- 2/ info -->
+            <div *ngIf="admin">
+                <!-- MESSAGE ALERTRE ADMIN -->
+                <div class="alerteAdmin">
+                    <p *ngIf="messageVisibleAdmin">{{messageAdmin}} <img (click)="fermer()"
+                            src="./../../../assets/suppr.png" alt="fermer"></p>
+                    <div *ngIf="choix">
+                        <p>Vous êtes sur le point de supprimer le profil.</p>
+                        <p>Cette opération sera définitive.</p>
+                        <p>vous confirmez ?</p>
+                        <button (click)="supprimerProfil()">OUI</button><button (click)="annul()">NON</button>
+                    </div>
+                </div>
+                <!-- premier tableau : LES ACTIONS EDITER ET SUPPRIMER PROFIL USER-->
+                <div class="lesTables">
+                    <table>
+                    <thead>
+                        <th>les membres</th>
+                        <th>éditer</th>
+                        <th>supprimer </th>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let mb of connexions'>
+                            <!-- les membres : -->
+                            <td>{{mb.pseudo}} ({{mb.prenom}} {{mb.nom|uppercase}}) </td>
+                            <!-- les actions : editer le profil : -->
+                            <td>
+                                <a routerLink="/editer"><img (click)='select(mb.pseudo)'
+                                        src="./../../../assets/crayon.png" alt="crayon">
+                                </a>
+                            </td>
+                            <!-- les actions : supprimer le profil : -->
+                            <td>
+                                <img (click)='deleteProfil(mb.pseudo)' src="./../../../assets/poubelle.png"
+                                    alt="crayon">
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    <!-- second tableau : LES DATES DE CONNEXIONS -->
+                    <table>
+                        <thead>
+                            <th> les membres</th>
+                            <th>les connexions</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor='let mb of connexions'>
+                                <td>{{mb.pseudo}} ({{mb.prenom}} {{mb.nom|uppercase}}) </td>
+                                <td>
+                                    <button *ngIf="!mb.voirConnexions" (click)="voirCo(mb.pseudo)"><img
+                                            src="./../../../assets/oeil.png" alt=""></button>
+                                    <div *ngIf="mb.voirConnexions">
+                                        <ul *ngFor='let co of mb.co'>
+                                            <li>{{co}}</li>
+                                        </ul>
+                                        <button (click)='fermerCo(mb.pseudo)'><img src="./../../../assets/suppr.png"
+                                                alt=""></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+                    <!-- TROISIEME TABLEAU : les MESSAGES PUBLIES-->
+                    <table>
+                        <thead>
+                            <th> les membres</th>
+                            <th>les publications</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor='let mb of connexions'>
+                                <td>{{mb.pseudo}} ({{mb.prenom}} {{mb.nom|uppercase}}) </td>
+                                <td>
+                                    <button *ngIf="!mb.voirComment" (click)="listeCom(mb.pseudo)">voir</button>
+
+                                    <div *ngIf="mb.voirComment">
+                                        <ul *ngFor='let com of xxx'>
+                                            <li>{{com}}</li>
+                                        </ul>
+                                        <button (click)='fermerComm(mb.pseudo)'><img
+                                                src="./../../../assets/suppr.png"></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

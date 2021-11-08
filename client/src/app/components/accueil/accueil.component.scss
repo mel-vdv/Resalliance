@@ -1,0 +1,128 @@
+
+
+@font-face {
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/pacifico/v17/FwZY7-Qmy14u9lezJ-6H6Mk.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Permanent Marker';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/permanentmarker/v10/Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cfw.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+// les couleurs : 
+
+.gris{
+    background-color: rgb(84,84,84);
+}
+.grisclair {
+    background-color:rgb(181,181,181); 
+   height: 6vh   ;
+  
+}
+.beige{
+    background-color: rgb(252,246,229);
+    height: 32vh;
+}
+.vert{
+    background-color: rgb(204,232,204);
+    height: 50vh;
+}
+.orange{
+    background-color: #ff914d;
+}
+// taille des logos : 
+@media only screen and(max-width:600px){
+   .grisclair img{
+ height: 6vh;}
+ .admin img{
+    display: block;
+    transition: transform 1ms linear;
+    border: 2px solid rgb(84,84,84);
+}
+ 
+}
+@media only screen and(min-width:601px){
+    .grisclair img{
+  height: 8vh; } 
+
+  .admin img{
+    display: block;
+    transition: transform 1ms linear;
+    border: 2px solid rgb(84,84,84);
+}
+.admin img:hover{
+    transform: scale(1.2);
+}
+
+ }
+
+.vert img {
+max-height: 12em;
+display: block;
+margin :auto;
+margin-top: 2em;
+margin-bottom: 2em;
+}
+.beige img{
+max-height: 8em;
+display: block;
+margin: auto;
+margin-top: 3em;
+margin-bottom: 3em;
+}
+.titre{
+    color: #ff914d;
+    font-size: 3em;
+    text-align: center;
+}
+ button {
+    display: block;
+    margin: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: auto;
+    width: 50%;
+    height: 3em;
+    background-color:rgb(252,246,229) ;
+}
+a{
+    text-decoration: none;
+    color: rgb(84,84,84);
+
+}
+button:hover{
+    background-color: #ff914d;
+    color:white;
+    font-weight: bold;
+  
+}
+a:hover{
+     text-decoration: none;
+}
+p {
+    font-family: 'Permanent Marker';
+}
+.label{
+   // color: rgb(181,181,181);
+   display: none;
+}
+.label:hover{
+    color: rgb(252,246,229) ;
+   
+}
+// animation css:
+
+.vert img{
+    display: block;
+    transition: transform 1s linear;
+    }
+.vert img:hover{
+    transform: scale(1.3);
+}

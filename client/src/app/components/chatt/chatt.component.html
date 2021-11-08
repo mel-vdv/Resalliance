@@ -1,0 +1,44 @@
+<div class="container beige">
+    <!-- barre de navigation : -->
+    <div class="row grisclair logo">
+        <div class="col-6 d-flex justify-content-center align-items-center">
+            <a routerLink='/profil'>
+                <img src="./../../../assets/connect2.png" alt="">
+                <span>PROFIL</span>
+            </a>
+        </div>
+      
+
+        <div class="col-6 d-flex justify-content-center align-items-center">
+            <img (click)='deco()' src="./../../../assets/deconnexion2.png" alt="">
+            <span>DECONNEXION</span>
+        </div>
+    </div>
+    <!-- partie message-->
+    <div class="row beige alerteChat">
+        <div class="col-12" *ngIf="choix">
+            <p>{{inviteur}} vous propose de le rejoindre sur le chat : </p>
+            <button (click)="accepterInvit(inviteur)">OUI</button> <button (click)="refuserInvit(inviteur)">NON</button>
+        </div>
+        <div class="col-12" *ngIf="attente">
+            <p> Veuillez attendre que {{invite}} accepte de vous rejoindre.</p>
+        </div>
+    </div>
+    <!-- partie membres amis connectés-->
+    <div class="row vert logoMini">
+        <div class="col-12">
+            <ul *ngFor="let ami of amisCo">
+                <li class="{{ami.statut}}">
+                    {{ami.pseudo}}
+                    <img (click)="actionLogo(ami.logo, ami.pseudo)" src="{{ami.logo}}" alt="logo">
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-12">
+            <ul *ngFor="let ami of amisDeco">
+                <li class="{{ami.statut}}"> {{ami.pseudo}} </li>
+            </ul>
+        </div>
+    </div>
+</div>

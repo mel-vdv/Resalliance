@@ -1,0 +1,62 @@
+// MESSAGES ALERTES : 
+.error{
+    color: #ff914d;
+    font-weight: bold;
+}
+.message{
+    color: beige;
+    font-weight: bold;
+    text-align: center;
+    font-size: 4vh;
+}
+//COULEURS : 
+.gris{
+    background-color: rgb(84,84,84);
+    height: 8vh;
+    font-size: 4vh;
+}
+.gris img{
+    max-height: 8vh;
+}
+.grisclair {
+    background-color:rgb(181,181,181);
+}
+
+.beige{
+    background-color: rgb(252,246,229);
+}
+.orange{
+    background-color: #ff914d;
+}
+// LIENS ET BOUTONS : 
+a,.titre{
+    color: rgb(252,246,229);
+    font-weight: bold;
+    text-decoration: none;
+}
+span{
+  display: none;
+  color: rgb(252,246,229);
+}
+.gris img:hover + span{
+   display: inline-block;
+}
+input,button, textarea, select{
+    border-radius: 7px;
+    border: 1px solid rgb(84,84,84);
+    color: #ff914d;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 0.2em;
+}
+
+.vu{
+    display: inline;
+    margin-left: 10px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

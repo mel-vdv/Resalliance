@@ -1,0 +1,30 @@
+<h1>reinitialisation du mot de passe : </h1>
+<p class="error">{{messageAlerte}}</p>
+
+<form *ngIf="etape1" #form1="ngForm" autocomplete="off" (ngSubmit)="mdpOubli(form1)">
+
+    Mon pseudo:
+    <input type="text" name="pseudo" [(ngModel)]="pseudo" autocomplete="off" required #saisiePseudo="ngModel">
+
+    Envoyer le nouveau mdp à cette adresse email :
+    <input type="email" name="mail" [(ngModel)]="mail" required #saisieMail="ngModel" autocomplete="off">
+
+    <input type="submit" value="envoyer">
+</form>
+
+<form *ngIf="etape2"  #form2="ngForm" autocomplete="off" (ngSubmit)="reinitialiserMdp(form2)">
+   
+    <label>Code transitoire :
+        <input type="text" autocomplete="off" name="mdpAleatoireTest" [(ngModel)]="mdpAleatoireTest" required #saisieCode="ngModel">
+    </label>
+    <p class="error" *ngIf="(saisieCode.touched && saisieCode.invalid)"> Merci d'indiquer le code envoyé par email</p>
+
+
+    <label>Je choisis mon NOUVEAU MOT DE PASSE:
+        <input type="password" name="newMdp" autocomplete="off" [(ngModel)]="mdpNew" required #saisieNewMdp="ngModel">
+    </label>
+    <p class="error" *ngIf="(saisieNewMdp.touched && saisieNewMdp.invalid)">merci d'indiquer votre mot de passe.</p>
+
+    <input type="submit" value="enregistrer"> 
+
+</form>

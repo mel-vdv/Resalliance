@@ -1,0 +1,35 @@
+<div class="alerte" *ngIf="affichageMsg">
+    {{message}}
+    <img (click)="close()" src="./../../../assets/suppr.png" alt="croix">
+</div>
+
+<div *ngIf="recoAlerte">
+
+    <p> Pseudo de la personne à qui vous souhaiter recommmander {{membreclik}}:
+        <input type="text" name="destinataire" [(ngModel)]=destinataire #destina="ngModel">
+        <button (click)="recommander()">soumettre la recommandation</button>
+
+        <img (click)="fermer()" src="./../../../assets/suppr.png" alt="croix">
+    </p>
+</div>
+
+
+<ul *ngFor="let ami of amis">
+
+    <li class="{{ami.statut}}" (mouseover)="mouseover(ami.pseudo)">
+        <div class="blocAmi">
+            {{ami.pseudo}} ( {{ami.prenom}}) {{ami.nom |uppercase}} </div>
+        <div *ngIf="ami.logosVisibles" class="logos" (mouseleave)="mouseout(ami.pseudo)">
+            <a [routerLink]="'/profilmembre/'+ami.pseudo"><img (click)="selectClik(ami.pseudo)"
+                    src="./../../../assets/oeil.png" alt="oeil"></a>
+            <a routerLink="/messagerie"><img src="./../../../assets/enveloppe.png" alt="enveloppe"></a>
+            <img (click)="reco(ami.pseudo)" src="./../../../assets/like.png" alt="like">
+            <img src="./../../../assets/retirer.png" alt="retirer" (click)="retirerDeListe(ami.pseudo)">
+            <a *ngIf="niveau === 1" routerLink="/editer"><img (click)='editer(ami.pseudo)'
+                    src="./../../../assets/crayon.png" alt=""></a>
+            <img *ngIf="niveau === 1" src="./../../../assets/poubelle.png" alt="poubelle"
+                (click)="supprProfil(ami.pseudo)">
+        </div>
+    </li>
+
+</ul>

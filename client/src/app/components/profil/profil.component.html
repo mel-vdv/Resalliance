@@ -1,0 +1,327 @@
+<div class="container-fluid">
+    <!--PARTIE 1 : ECRAN MOBILE -->
+    <div class="container-fluid mobile">
+        <!-- ligne 1 :barre navigation-----GRIS FONCE -->
+        <div class="row gris navig">
+         
+            <!--2.pseudo---------------------------------------------------------------------------->
+            <div class="col-9 pseudo d-flex align-items-center">
+                <img src="./../../../assets/connect2.png" alt="profil connect"> {{moi.pseudo}}
+            </div>
+            <!-- 3.logo deconnexion : ------------------------------------------------------------------>
+            <div class="col-2 d-flex align-items-center">
+                <img (click)=deco() src="./../../../assets/deconnexion2.png">
+            </div>
+        </div>
+        <!-- ligne 2 ------BEIGE  -->
+        <div class="row beige rowphoto">
+            <!--4.photo de profil -->
+            <div class="col-6 photo  d-flex align-items-center">
+                <img  *ngIf="vraiePhoto" [src]="'data:'+format+';base64,'+base"
+                    alt="photo de profil">
+                <img *ngIf="parDefaut" src="./../../../assets/robot.png" alt="robot">
+            </div>
+            <!-- 5.messagerie et 6.chat : -------------------------------------------------------------------->
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-12 mess">
+                        <a routerLink="/messagerie">
+                            <img src="./../../../assets/enveloppe2.png" alt="">
+                        </a>
+                    </div>
+                    <div class="col-12 chat">
+                        <a routerLink="/chat">
+                            <img src="./../../../assets/bulles.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 7.editer et 8.supprimer profil : ----------------------------------------------------------------------->
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-12 poub">
+                        <img *ngIf="niveau===1" (click)="deleteProfil()" src="./../../../assets/poubelle2.png"
+                            alt="supprimer profil">
+                    </div>
+                    <div class='col-12 crayon'>
+                        <a routerLink="/editer">
+                            <img (click)="editerServ()" src="./../../../assets/crayon2.png" alt="editer mon profil">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ligne 3 BEIGE-->
+            <div class="row beige description">
+                <!-- 9. NOM PRENOM description------------------------------------------------------------------------------------------->
+                <div class="col-12">
+                    <h1>{{moi.nom |uppercase}}</h1>
+                    <h2>{{moi.prenom}}</h2>
+                    <div class="museoModerno">{{moi.description}}</div>
+                </div>
+            </div>
+        </div>
+        <!-- 10. informations----------------------------------------------------------------------------------------->
+        <div class="row grisclair infos">
+            <div class="col-12">
+                <p><img src="./../../../assets/genre.png" alt="genre">{{moi.genre}}</p>
+                <p><img src="./../../../assets/anniversaire.png" alt="annniv">{{moi.date}}</p>
+
+                <p><img src="./../../../assets/tel.png" alt="tel">{{moi.tel}} </p>
+                <p><img src="./../../../assets/email.png" alt="email"> {{moi.mail}} </p>
+                <p><img src="./../../../assets/adresse.png" alt="lieu"> {{moi.adresse}} {{moi.cp}} {{moi.ville}}</p>
+                <img src="./../../../assets/hobbies.png" alt="hobbies">
+                <ul *ngFor="let hobi of moi.hobbies">
+                    <li>{{hobi}}</li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div><!-- fin div mobile-->
+
+    <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <!-- PARTIE 2 : SCREEN ORDI BUREAU-->
+    <div class="container-fluid bureau">
+        <!-- ligne 1 :barre navigation-----GRIS FONCE -->
+        <div class="row gris navig">
+            
+            <!--2.pseudo---------------------------------------------------------------------------->
+            <div class="col-3 pseudo">
+                <img src="./../../../assets/connect2.png" alt="profil connect"> {{moi.pseudo}}
+            </div>
+            <!-- 3.messagerie -->
+            <div class="col-3">
+                <a routerLink="/messagerie">
+                    <img src="./../../../assets/enveloppe2.png" alt="">
+                </a>
+            </div>
+            <!--4 chat-->
+            <div class="col-3">
+                <a routerLink="/chat">
+                    <img src="./../../../assets/bulles.png" alt="">
+                </a>
+            </div>
+       
+            <!-- 6.logo deconnexion : ------------------------------------------------------------------>
+            <div class="col-3">
+                <img (click)=deco() src="./../../../assets/deconnexion2.png">
+            </div>
+        </div><!-- fin row navig-->
+        <!-- ligne 2 ------BEIGE  et GRIS -->
+        <div class="row prive">
+            <div class="col-5 beige">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <!--photo de profil-->
+                            <div class="col-12 photo">
+                                <img *ngIf="vraiePhoto" width="100px" [src]="'data:'+format+';base64,'+base"
+                                    alt="photo de profil">
+                                <img *ngIf="parDefaut" src="./../../../assets/robot.png" alt="robot">
+                            </div>
+                            <div class="col-12 description">
+                                <!--nom et prenom-->
+                                <h1>{{moi.nom |uppercase}}</h1>
+                                <h2>{{moi.prenom}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <!--crayon et poubelle-->
+                                <div class="row">
+                                    <div class="col-6 poub">
+                                        <img *ngIf="niveau===1" (click)="deleteProfil()"
+                                            src="./../../../assets/poubelle2.png" alt="supprimer profil">
+                                    </div>
+                                    <div class="col-6 crayon">
+                                        <a routerLink="/editer">
+                                            <img (click)="editerServ()" src="./../../../assets/crayon2.png"
+                                                alt="editer mon profil">
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-12 description">
+                                <!--description-->
+                                {{moi.description}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-7 infos grisclair">
+                <!--informations-->
+                <div class="row ">
+                    <div class="col-4">
+                        <p><img src="./../../../assets/genre.png" alt="genre">{{moi.genre}}</p>
+                        <p><img src="./../../../assets/anniversaire.png" alt="annniv">{{moi.date}}</p>
+                    </div>
+                    <div class="col-4">
+                        
+                        <p><img src="./../../../assets/email.png" alt="email"> {{moi.mail}} </p>
+                        <p><img src="./../../../assets/adresse.png" alt="lieu"> {{moi.adresse}} {{moi.cp}} {{moi.ville}}
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <p><img src="./../../../assets/tel.png" alt="tel"> {{moi.tel}} </p>
+                        <p><img src="./../../../assets/hobbies.png" alt="hobbies">{{moi.hobbies}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--fin row prive-->
+    </div>
+    <!--fin bureau-->
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <!-- PARTIE 3 COMMUNE A ECRAN BUREAU ET MOBILE  -->
+
+    <div class="container-fluid commun">
+        <div class="row public">
+            <div class="col-12 col-md-6 order-md-2 beige">
+                <div class="row">
+                    <!-- recherche-->
+                    <div class=" col-12 loupe orange">
+                        <div>
+                            <div><img (click)="rechercheEnCours()" src="./../../../assets/loupe2.png" alt="loupe"></div>
+                            <div *ngIf="rechercheActive" class="barreRecherche">
+                                <div><input (click)="blanc()" type="text" name="recherche" [(ngModel)]=inputRecherche
+                                    #inputRech="ngModel"></div>
+                                <div><button (click)="chercher()">?</button></div>
+                                <div class="croix"><img  src="./../../../assets/suppr.png" alt="fermer"
+                                    (click)="stopRecherche()"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <li  *ngFor="let result of listeResult"> <a
+                                    [routerLink]="'/profilmembre/'+result.pseudo"><img (click)="selectClik(result.pseudo)" src="./../../../assets/oeil.png"
+                                        alt="oeil"></a> {{result.pseudo}} ( {{result.prenom}} {{result.nom | uppercase}})
+                            </li>
+                        </div>
+
+                    </div>
+                    <!--fin div loupe-------------------------------------------------------------------------->
+                    <!--rubriques-->
+                    <div class="col-12 rubriques beige">
+
+                        <div class="row">
+                            <!-- a/amis-->
+
+                            <div class="col-12">
+                                <img src="./../../../assets/amis.png" alt="">
+                                <img (click)="voirAmis()" [src]="'./../../../assets/'+logoAmis" alt="oeil">
+                                <app-amis *ngIf='voirLesAmis'></app-amis>
+                            </div>
+                            <!-- b/ demandes d'amis-->
+                            <div class="col-12">
+                                <img src="./../../../assets/demande.png" alt="">
+                                <img (click)="voirDemandes()" [src]="'./../../../assets/'+logoDemandes" alt="oeil">
+                                <span class="demandePlus" *ngIf="nbDemandes">+ {{nbDemandes}}</span>
+                                <div *ngIf="voirLesDemandes">
+                                    <div *ngIf="moi.demandeurs.length ===0">
+                                        <p>Pas de demande d'ami en cours...</p>
+                                    </div>
+                                    <div *ngIf="moi.demandeurs.length>0">
+                                        <p>{{alerteDemande}}</p>
+                                        <ul>
+                                            <li *ngFor="let demande of moi.demandeurs">
+                                                <div>
+                                                    {{demande}} :
+                                                    <button>
+                                                        <img (click)="accepter(demande)"
+                                                            src="./../../../assets/accept.png" alt="accepter"></button>
+                                                    <button>
+                                                        <img (click)="refuser(demande)"
+                                                            src="./../../../assets/refus.png" alt="refus">
+                                                    </button>
+                                                </div>
+                                            </li>
+                                            <div class="message" *ngIf="messageAcceptApparait">
+                                                <p>Vous êtes désormais amis.</p>
+                                                <img (click)="msgPart()" src="./../../../assets/suppr.png"
+                                                    alt="croix">
+                                            </div>
+
+                                            <div class="message" *ngIf="messageRefusApparait">
+                                                <p>La demande d'amis a bien été ignorée.</p>
+                                                <img (click)="msgPart()" src="./../../../assets/suppr.png"
+                                                    alt="croix">
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- c/ recommandations -->
+                            <div class="col-12">
+                                <img src="./../../../assets/reco.png" alt="reco">
+
+                                <img (click)="voirReco()" [src]="'./../../../assets/'+logoReco" alt="oeil">
+
+                                <span *ngIf="nbRecos">+{{nbRecos}} </span>
+
+                                <app-reco *ngIf='voirLesReco'></app-reco>
+                            </div>
+                            <!-- d/ les autres membres-->
+                            <div class="col-12">
+                                <img src="./../../../assets/inconnu.png" alt="">
+                                <img (click)="voirMembres()" [src]="'./../../../assets/'+logoMb" alt='oeil'>
+                                <app-membres *ngIf='voirMembr'></app-membres>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 order-md-1 commentaires vert">
+                <!--commentaires-->
+                <h2>commentaires:</h2>
+                <ul *ngFor="let msgPublic of moi.msgPublics">
+                    <li>
+                        <!--le commentaire : -->
+                        {{msgPublic.auteur}} : {{msgPublic.contenu}}
+                        <!-- logo poubelle :-->
+                        <img *ngIf="((niveau===1) ||(msgPublic.auteur=== quiEstCo))"
+                            (click)="delete(msgPublic.auteur, msgPublic.contenu)" src="./../../../assets/poubelle.png"
+                            alt="poubelle" >
+                        <!-- logo repondre : -->
+                        <img (click)="repondre1(msgPublic.auteur, msgPublic.contenu)"
+                            src="./../../../assets/repondre.png" alt="repondre" class="minilogo">
+                        <br>
+                        <!-- les reponses :-->
+                        <ul *ngFor="let reponse of msgPublic.rep">
+                            <li>
+                                {{reponse.auteurRep}} : {{reponse.contenuRep}}
+                                <img *ngIf="((niveau===1) ||(msgPublic.auteur=== quiEstCo))"
+                                    (click)="suppr(msgPublic.auteur, msgPublic.contenu,reponse.auteurRep,reponse.contenuRep )"
+                                    src="./../../../assets/poubelle.png" alt="poubelle">
+                            </li>
+                        </ul>
+                        <br>
+                        <!-- form de reponse : -->
+                        <div *ngIf="msgPublic.ajoutRep">
+                            <textarea name="ajoutRep" [(ngModel)]='repEnCours' id="ajoutRep" cols="30"
+                                rows="10"></textarea>
+                            <button (click)="repondre2(msgPublic.auteur, msgPublic.contenu)">envoi</button>
+                        </div>
+                    </li>
+                </ul>
+                <!-- form pour publier nouveau commentaire : -->
+                <input type="checkbox" [checked]="ajoutCom" (change)="ecrire($any($event.target).checked)">publier
+                un
+                message
+
+                <form *ngIf="ajoutCom" #publication="ngForm" (ngSubmit)="publier(publication)">
+                    <textarea [(ngModel)]="contenu" name="ajoutCom" id="ajoutCom" cols="30" rows="10"></textarea>
+                    <input type="submit" value="publier">
+                </form>
+            </div>
+            <!--fin commentaires-->
+        </div>
+        <!--fin row public-->
+    </div>
+    <!--fin container commun-->
+</div>
+<!--fin container total-->

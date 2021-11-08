@@ -1,0 +1,98 @@
+.container{
+  height: 100vh;
+  width:100vw;
+  border: rgb(84,84,84) solid 5vh;
+}
+
+.connect  {
+    list-style-image: url(./../../../assets/connect.png);
+    background-color:rgb(252,246,229);
+    border: 2px solid rgb(181,181,181);
+    border-radius: 15px;
+    color: rgb(84,84,84);
+    font-weight: bold;
+    width: 40%;
+
+  }
+.deconnect  {
+    list-style-image: url(./../../../assets/deconnect.png);
+  }
+//couleurs:
+.gris{
+  background-color: rgb(84,84,84);
+}
+.grisclair {
+  background-color:rgb(181,181,181); 
+}
+.orange{
+  background-color: #ff914d;
+}
+.beige{
+  background-color: rgb(252,246,229);
+  color:rgb(84,84,84);
+}
+.vert{
+  background-color: rgb(204,232,204);
+}
+
+//taille, logo etc :
+.logo img {
+max-height: 3em;
+}
+a{
+  text-decoration: none;
+}
+span{
+  color: rgb(181,181,181);
+}
+.logo img:hover + span{
+  color: rgb(252,246,229);
+  font-weight: bold;
+}
+
+.msg{
+    color: rgb(84,84,84);
+    background-color: rgb(252,246,229);
+    border-radius: 10px;
+    padding-left:1em;
+    padding-right: 1em; 
+    text-transform: lowercase;
+    text-overflow: clip;
+    
+}
+.auteur{
+    color: rgb(252,246,229);
+    background-color: #ff914d;
+    border-radius: 10px;
+    font-weight: 600;
+}
+li{
+    list-style: none;
+}
+button{
+    background-color:rgb(252,246,229);
+    color: #ff914d;
+    border: 1px solid rgb(84,84,84);
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    margin-top: 2em;
+
+}
+textarea{
+    color: rgb(84,84,84);
+    border-radius: 15px;
+    border: #ff914d solid 3px;
+    display: block;
+    margin: auto;
+    width: 80%;
+    padding: 1em;
+}
+button:hover{
+    border:2px solid #ff914d;
+    color: rgb(84,84,84);
+    font-weight: 350;
+}
+.formulaire{
+  margin-top: 8vh;
+}

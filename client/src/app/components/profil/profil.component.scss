@@ -1,0 +1,177 @@
+// les polices et tailles :
+@font-face {
+    font-family: 'Big Shoulders Inline Text';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/bigshouldersinlinetext/v10/vm8XdQDmVECV5-vm5dJ-Tp-6WDeRjL4RV7dP8u-NMyHY74qpoNNcwgYdzJGK548.woff2) format('woff2');
+    
+    @font-face {
+        font-family: 'Permanent Marker';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/permanentmarker/v10/Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cfw.woff2) format('woff2');
+      }
+  }
+  @font-face {
+    font-family: 'MuseoModerno';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/museomoderno/v7/zrf30HnU0_7wWdMrFcWqSEXPVyEaWJ55pTleMlZEiesQjA.woff2) format('woff2');
+  }
+  .pseudo{
+      font-size: 5vh;
+      color: #ff914d;
+      font-family: "Permanent Marker";
+  }
+
+// LES COULEURS DE FOND : -----------------------------
+
+.gris{
+    background-color: rgb(84,84,84);
+    height: 8vh;
+}
+.grisclair {
+    background-color:rgb(181,181,181);
+}
+.beige{
+    background-color: rgb(252,246,229);
+}
+.vert{
+    background-color: rgb(204,232,204);
+}
+.orange{
+    background-color: #ff914d;
+}
+// les TAILLES ZONES ET IMAGES : ---------------------------------
+
+///////////////////  ECRAN MOBILE ////////////////////////// 
+
+@media only screen and (max-width: 600px){
+.bureau{
+ display: none;
+}
+
+.navig{
+    height: 8vh;
+}
+.navig img{
+    max-height: 7vh;
+}
+.mess img, .chat img, .poub img, .crayon img{
+    max-width: 15vw;
+    max-height: 15vw;
+}
+.infos img{
+    height: 10vh;
+}
+.loupe img{
+    max-height: 15vh;
+}
+.rubriques img {
+    max-height: 15vh;
+}
+.minilogo{
+    max-height: 7vh;
+}  
+input[type="text"]{
+
+    width: 80vw;
+}
+}
+//////////////  GRAND ECRAN ////////////////////
+
+@media only screen and (min-width: 601px){
+    
+.mobile{
+    display: none;
+}
+.navig{
+    height: 8vh;
+}
+.prive{
+    height: 20vh;
+}
+.public{
+    height: 70vh;
+}
+input[type="text"]{
+    width: 30vw;
+}
+.loupe img{
+    height: 8vh;
+    display: block;
+    padding: auto;
+}
+
+.navig div{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.navig img{
+    max-height: 8vh;
+}
+.crayon img, .poub img{
+    max-height: 8vh;
+}
+.infos img{
+    max-height: 8vh;
+}
+
+.rubriques img {
+    max-height: 10vh;
+}
+.minilogo{
+    max-height: 7vh;
+}  
+
+}
+
+
+////////////////////////////////////    les survols /////////////////
+.oeil-croix:hover{
+background-image: url("./../../../assets/oeil2.png");
+}
+
+// autres
+.loupe li{
+    list-style: none;
+}
+.croix img {
+ height: 4vh;
+}
+.barreRecherche{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   // padding-bottom: 5px;
+   margin-bottom: 4vh;
+   height: 4vh;
+}
+input[type="text"]{
+    color: rgb(84,84,84);
+    background-color: rgb(252,246,229);
+}
+.demandePlus{
+    color: red;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+.photo img{
+    height: 15vh;
+    width: 15vh;
+    display: block;
+    border: 5px solid rgb(181,181,181);
+}
+.loupe li{
+    color: rgb(252,246,229);
+    font-weight: bold;
+}
+
+img[alt="oeil"], img[alt="croix"], img[alt="repondre"],img[alt="poubelle"] {
+    height: 4vh;
+}

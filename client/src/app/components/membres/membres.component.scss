@@ -1,0 +1,20 @@
+.connect  {
+    list-style-image: url(./../../../assets/connect.png);
+  }
+.deconnect  {
+    list-style-image: url(./../../../assets/deconnect.png);
+  }
+.message { 
+ color: #ff914d;
+ font-weight: bold;
+ background-color: white;
+ border: 1px #ff914d solid;
+ height: 4vh;
+}
+li img{
+  height: 4vh;
+}
+img[alt="croix"]{
+  height: 4vh;
+}
+  

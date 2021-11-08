@@ -1,0 +1,72 @@
+//couleurs:
+.gris{
+    background-color: rgb(84,84,84);
+}
+.grisclair {
+    background-color:rgb(181,181,181); 
+    height: 8vh;
+}
+.orange{
+    background-color: #ff914d;
+}
+.beige{
+    background-color: rgb(252,246,229);
+    color:rgb(84,84,84);
+   
+}
+
+.vert{
+    background-color: rgb(204,232,204);
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+// tailles : 
+.logo img {
+ max-height: 3em;
+}
+a{
+    text-decoration: none;
+}
+span{
+    color: rgb(181,181,181);
+}
+.logo img:hover + span{
+    color: rgb(252,246,229);
+    font-weight: bold;
+}
+.logomoyen img{
+    max-height: 10vh;
+}
+.logomoyen img:hover{
+ border: 4px #ff914d solid;
+ border-radius: 50%;
+}
+button{
+    display: block;
+    margin: auto;
+    color: rgb(84,84,84);
+    background-color: rgb(204,232,204);
+    border-radius: 8px;
+    box-shadow: inset 2px 2px white;
+    
+}
+.logomoyen{
+    height: 80vh;
+}
+button:hover{
+    background-color: rgb(252,246,229);
+    font-weight: bold;
+}
+//invisible sur ecran mobile: 
+@media only screen and (max-width:600px){
+    span{
+        display: none;
+    }
+}
+// message erreurs formulaire: 
+.error{
+    color: red;
+    font-weight: bold;
+}

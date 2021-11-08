@@ -1,0 +1,154 @@
+<div class="container-fluid">
+
+    <div class="row gris navig ">
+        <div class="col-4 d-flex align-items-center justify-content-center"><a routerLink="/profil"><img
+                    src="./../../../assets/connect2.png" alt=""> </a>
+        </div>
+        <div class="col-4 d-flex align-items-center justify-content-center"><span>{{mb.pseudo}}</span></div>
+        <div class="col-4 d-flex align-items-center justify-content-center"><img (click)="deco()"
+                src="./../../../assets/deconnexion2.png" alt="deconnexion">
+        </div>
+    </div> <!-- fin de la row navig-->
+    <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <div class="row prive">
+        <div class="col-12 col-md-6 beige">
+            <!-- ECRAN MOBILE *******************************-->
+            <div class=" row mobile beige">
+                <!--poubelle-->
+                <div class="col-3"><img *ngIf="niveau===1" (click)="deleteProfil()" src="./../../../assets/poubelle.png" alt="poubelle"></div>
+                <!--photo de profil-->
+                <div class="col-6 profil">
+                    <img *ngIf="vraiePhoto" [src]="'data:'+format+';base64,'+base" alt="photo de profil">
+                    <img *ngIf="parDefaut" src="./../../../assets/robot.png" alt="robot">
+                </div>
+                <!--crayon-->
+                <div class="col-3">
+                    <a routerLink="/editer">
+                        <img (click)="editerServ()" src="./../../../assets/crayon.png" alt="crayon">
+                    </a>
+               </div>
+               <!-- si clic sur poubelle : -->
+                <div class="col-12" *ngIf="choix">
+                    <p>Vous êtes sur le point de supprimer le profil.</p>
+                    <p>Cette opération sera définitive.</p>
+                    <p>vous confirmez ?</p>
+                    <button (click)="supprimerProfil()">OUI</button><button (click)="annul()">NON</button>
+              
+               </div>
+                <div class="col-12">{{notif}}</div>
+
+                <!--nom prenom-->
+                <div class="col-12 ">{{mb.prenom}} {{mb.nom | uppercase}}</div>
+                <!--description-->
+                <div class="col-12">{{mb.description}}</div>
+            
+
+            </div>
+            <!-- ECRAN DE BUREAU************************************-->
+            <div class="row bureau">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-6 profil">
+                            <!--photo de profil-->
+                            <img *ngIf="vraiePhoto" [src]="'data:'+format+';base64,'+base"
+                                alt="photo de profil">
+                            <img *ngIf="parDefaut" src="./../../../assets/robot.png" alt="robot">
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row crpb">
+                                        <div class="col-6">
+                                            <a routerLink="/editer">
+                                                <img (click)="editerServ()" src="./../../../assets/crayon.png"
+                                                    alt="crayon" class="logoMoyen ">
+                                            </a>
+                                        </div>
+                                        <div class="col-6">
+                                            <img class="logoMoyen" src="./../../../assets/poubelle.png" alt="poubelle">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--description -->
+                                <div class="col-12">
+                                    {{mb.description}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--nom prenom-->
+                <div class="col-12 beige">{{mb.prenom}} {{mb.nom | uppercase}}</div>
+            </div><!-- fin de la row bureau-->
+        </div>
+        <!--**********************************-->
+        <div class="col-12 col-md-6 grisclair">
+            <div class="bibi">
+                <div><img src="./../../../assets/genre.png" alt="genre"> {{mb.genre}}</div>
+                <div><img src="./../../../assets/anniversaire.png" alt="cadeau">{{mb.date}}</div>
+                <div><img src="./../../../assets/tel.png" alt="tel"> {{mb.tel}}</div>
+                <div><img src="./../../../assets/email.png" alt="email"> {{mb.mail}}</div>
+                <div><img src="./../../../assets/adresse.png" alt="adresse"> {{mb.adresse}} {{mb.cp}} {{mb.ville}}</div>
+                <div><img src="./../../../assets/hobbies.png" alt="hobbies"> {{mb.hobbies}} </div>
+               
+            </div>
+        </div>
+    </div><!-- fin de la row privé-->
+    <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <div class="row public">
+        <!--voir les amis : -->
+        <div class="col-12 col-md-6 order-md-2 beige voirAmis">
+
+            <img src="./../../../assets/amis.png" alt="groupe d'amis">
+
+            <img (click)="voirAmis()" [src]="'./../../../assets/'+logoAmis">
+            <div *ngIf='voirLesAmis'>
+                <ul *ngFor="let ami of this.mb.confirmes">
+                    <li> {{ami}} <a [routerLink]="'/profilmembre/'+ami"><img (click)="selectClik(ami)" src="./../../../assets/oeil.png"></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- les commentaires : -->
+        <div class="col-12 col-md-6 order-md-1 vert com">
+            <ul *ngFor="let msgPublic of mb.msgPublics">
+                <li>
+                    <!--le commentaire : -->
+                    {{msgPublic.auteur}} : {{msgPublic.contenu}}
+                    <!-- logo poubelle :-->
+                    <img *ngIf="((niveau===1) ||(msgPublic.auteur=== quiEstCo))"
+                        (click)="deleteComment(msgPublic.auteur, msgPublic.contenu)"
+                        src="./../../../assets/poubelleMini.png" alt="poubelle">
+                    <!-- logo repondre : -->
+                    <img (click)="repondre1(msgPublic.auteur, msgPublic.contenu)" src="./../../../assets/repondre.png"
+                        alt="repondre" >
+                    <br>
+                    <!-- les reponses :-->
+                    <ul *ngFor="let reponse of msgPublic.rep">
+                        <li>
+                            {{reponse.auteurRep}} : {{reponse.contenuRep}}
+                            <img *ngIf="((niveau===1) ||(msgPublic.auteur=== quiEstCo))"
+                                (click)="suppr(msgPublic.auteur, msgPublic.contenu,reponse.auteurRep,reponse.contenuRep )"
+                                src="./../../../assets/poubelleMini.png" alt="poubelle">
+                        </li>
+                    </ul>
+                    <br>
+                    <!-- form de reponse : -->
+                    <div *ngIf="msgPublic.ajoutRep">
+                        <textarea name="ajoutRep" [(ngModel)]='repEnCours' id="ajoutRep" cols="30" rows="10"></textarea>
+                        <button (click)="repondre2(msgPublic.auteur, msgPublic.contenu)">envoi</button>
+                    </div>
+                </li>
+            </ul>
+            <!-- form pour publier nouveau commentaire : -->
+            <input type="checkbox" [checked]="ajoutCom" (change)="ecrire($any($event.target).checked)">publier
+            un
+            message
+
+            <form *ngIf="ajoutCom" #publication="ngForm" (ngSubmit)="publier(publication)">
+                <textarea [(ngModel)]="contenu" name="ajoutCom" id="ajoutCom" cols="30" rows="10"></textarea>
+                <input type="submit" value="publier">
+            </form>
+        </div>
+    </div>
+    <!--fin de la row public-->
+</div>

@@ -1,0 +1,59 @@
+<div class="container-fluid grisclair">
+    <!--barre du haut: retour liste des thèmes / profil / accueil : ------------------------->
+    <div class="row gris">
+                <div class="col-4 col-md-2"><a routerLink="/profil"><img 
+                            src="./../../../assets/profil-connect2.png" alt=""><span>profil</span> </a></div>
+                <div class="col-4 col-md-2"><a routerLink="/messagerie"><img 
+                            src="./../../../assets/livre.png" alt=""> <span>liste</span> </a></div>
+
+
+                <div class="col-md-6 titre bureau ">{{discuX.theme}}</div>
+
+             
+                <div class="col-4 col-md-2"><img (click)="deco()" src="./../../../assets/deconnexion2.png" alt=""> <span>deconnexion</span> </div>
+                    
+    </div>
+    <!--titre :--------------------------------------------------------------------------- -->
+    <div class="row beige titre mobile"> <p>{{discuX.theme}}</p></div>
+    <!-- logo participants et créateur--------------------------------------------------->
+    <div class="row vert">
+    
+        <div class="col-6 centre d-flex justify-content-center">
+            <img  src="./../../../assets/ampoule.png" alt="idée"> <br> crée par {{discuX.createur}}</div>
+        <div class="col-6 col-md-3 centre ">
+            <img src="./../../../assets/groupe.png" alt="groupe">
+        </div>
+        <div class="col-12 col-md-3 centre ">
+            <h3>les participants : </h3>
+            <ul *ngFor="let participant of discuX.participants" >
+                <div><li> {{participant}}</li></div>
+            </ul>
+        </div>
+    </div>
+    <!-- message de suppression :--------------------------------------------------------- -->
+    <div class="row beige" *ngIf="sure">
+        <div class="col-12">
+            <p> Ce message sera supprimé définitivement.
+                Confirmez-vous votre choix?
+            </p>
+            <button (click)="confirm()">OUI</button> <button (click)='annul()'>NON</button>
+        </div>
+    </div>
+    <!-- contenu de la discussion :-------------------------------------------------------- -->
+    <div class="row grisclair">
+        <div class="col-12">
+            <ul *ngFor='let c of discuX.contenu'>
+                <li><span>{{c.auteur}}</span> <span class="msg">{{c.msg}}</span>
+                    <img  src="./../../../assets/poubelleMini.png" alt="poubelle" 
+                    (click)='supprMsg(c.auteur, c.msg)'
+                        *ngIf="(niveau===1) || (c.auteur===quiEstCo)">
+                </li>
+            </ul>
+        </div>
+        <!-- zone d'écriture de message : ----------------------------------------------------->
+        <div class="col-12">
+            <textarea name="reponse" id="reponse" cols="10" rows="5" [(ngModel)]="reponse" #partDisc></textarea> <br>
+            <button class="envoyer" (click)='ecrire()'><img src="./../../../assets/envoi.png" alt=""> ENVOYER</button>
+        </div>
+    </div>
+</div>

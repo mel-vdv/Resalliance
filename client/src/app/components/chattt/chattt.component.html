@@ -1,0 +1,37 @@
+<div class="container beige">
+    <!-- barre de navigation : -->
+    <div class="row grisclair logo">
+        <div class="col-4 d-flex justify-content-center align-items-center">
+            <a routerLink='/profil'>
+                <img src="./../../../assets/connect2.png" alt="">
+            </a>
+        </div>
+        <div class="col-4 d-flex justify-content-center align-items-center">
+            <a routerLink='/chat'>
+                <img src="./../../../assets/groupe-chat.png" alt="">
+               </a>
+        </div>
+  
+        <div class="col-4 d-flex justify-content-center align-items-center">
+            <img (click)='deco()' src="./../../../assets/deconnexion2.png" alt="">
+        </div>
+    </div>
+
+<!--la conversation : -->
+<div class="row vert">
+<ul *ngFor="let conv of convs">
+    <li>
+        <span class="auteur">{{conv.auteur}}</span>
+        <span class="msg">{{conv.msg}} </span>  
+    </li>
+</ul>
+</div>
+<!-- formulaire pour publier un nouveau message : -->
+
+<div class="col-12 beige formulaire">
+    <textarea name="reponseEnv" [(ngModel)]='repEnv' id="ajoutRep" cols="30" rows="5"></textarea>
+    <button (click)="repondre()">ENVOYER<img src="./../../../assets/envoi.png" alt=""></button>
+</div>
+
+</div>
+ 

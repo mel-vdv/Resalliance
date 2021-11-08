@@ -1,0 +1,144 @@
+<div class="container">
+    <!--barre de navigation-->
+    <div class="row grisclair logo">
+        <div class="col-6 d-flex justify-content-center align-items-center">
+            <a routerLink='/profil'>
+                <img src="./../../../assets/connect2.png" alt="">
+                <span>PROFIL</span>
+            </a>
+        </div>
+      
+        <div class="col-6 d-flex justify-content-center align-items-center">
+            <img (click)="deco()" src="./../../../assets/deconnexion2.png" alt="">
+            <span>DECONNEXION</span>
+        </div>
+    </div>
+  
+    <div class="row beige ">
+        <h3>{{user.pseudo}}</h3>
+        <h2>{{user.prenom}} {{user.nom | uppercase}}</h2>
+    </div>
+    <!-- champs à éditer-->
+    <div class="row beige logomoyen">
+        <div class="col-12 col-md-6">
+            <!-- photo de profil-->
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-4"><img (click)="editer('photo')" class="photo" src="./../../../assets/photo3.png"
+                        alt="cadre"></div>
+                <div  *ngIf="!editerPhoto" class="col-4"><span>changer la photo de profil</span></div>
+                <div *ngIf="editerPhoto" class="col-4">
+                    <input type="file" name="photo" #fileInput accept="image/png,image/jpg, image/jpeg">
+                    <button (click)='envoyer()'>envoyer</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <!--description-->
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-4"><img (click)="editer('description')" src="./../../../assets/plume3.png" alt="plume">
+                </div>
+                <div class="col-4"*ngIf="!editerDescr"><span>{{user.description}}</span></div>
+                <div class="col-4" *ngIf="editerDescr">
+                    <textarea name="description" cols="30" rows="6" [(ngModel)]="user.description" #saisieDescr="ngModel" required></textarea>
+                    <p class="error" *ngIf="(saisieDescr.touched && saisieDescr.invalid)">merci de vous décrire</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <!-- genre -->
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-4"><img (click)="editer('genre')" src="./../../../assets/genre2.png" alt="genre"></div>
+                <div class="col-4" *ngIf="!editerGenre"><span>{{user.genre}}</span></div>
+                <div *ngIf="editerGenre" class="col-4">
+                    <select name="genre" [(ngModel)]="user.genre">
+                        <option value="femme">femme</option>
+                        <option value="homme">homme</option>
+                        <option value="non genré">non genré</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <!-- date de naissance-->
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-4"><img (click)="editer('date')" src="./../../../assets/anniv.png" alt="cadeau"></div>
+                <div class="col-4" *ngIf="!editerDate"><span>{{user.date}}</span></div>
+                <div class="col-4" *ngIf="editerDate">
+                    <input type="text" name="date" [(ngModel)]="user.date"  #saisieDate="ngModel"required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
+                     <p class="error" *ngIf="(saisieDate.touched && saisieDate.invalid)">merci d'indiquer votre date de naissance sous le format JJ/MM/AAAA</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <!-- tel-->
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-4"><img (click)="editer('tel')" src="./../../../assets/tel2.png" alt="tel"></div>
+                <div class="col-4" *ngIf="!editerTel"><span>{{user.tel}}</span></div>
+                <div class="col-4" *ngIf="editerTel">
+                    <input type="tel" name="tel" [(ngModel)]="user.tel" #saisieTel="ngModel" required pattern="[0-9]{2}.[0-9]{2}.[0-9]{2}.[0-9]{2}.[0-9]{2}">
+                    <p class="error" *ngIf="(saisieTel.touched && saisieTel.invalid)">merci d'indiquer un numéro de téléphone valide ,de type xx.xx.xx.xx.xx</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <!-- email -->
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-4"><img (click)="editer('mail')" src="./../../../assets/email2.png" alt="arobase"></div>
+                <div class="col-4" *ngIf="!editerMail"><span>{{user.mail}}</span></div>
+                <div class="col-4" *ngIf="editerMail">
+                    <input type="email" name="mail" [(ngModel)]="user.mail" required #saisieMail="ngModel"
+                    pattern="[a-z0-9._-]+@[a-z]+\.[a-z]{2,4}">
+                    <p class="error" *ngIf="(saisieMail.touched && saisieMail.invalid)">merci d'indiquer une
+                        adresse email valide</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <!-- adresse et cp -->
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-4"><img (click)="editer('adresse')" class="adresse" src="./../../../assets/adresse2.png"
+                        alt="localisation"></div>
+                <div class="col-4" *ngIf="!editerAdr"><span>{{user.adresse}} {{user.cp}} {{user.ville}}</span></div>
+                <div class="col-4" *ngIf="editerAdr">
+                    <input type="text" name="adresse" [(ngModel)]="user.adresse"  #saisieAdresse="ngModel"required>
+                    <p class="error" *ngIf="(saisieAdresse.touched && saisieAdresse.invalid)">merci d'indiquer vos
+                        numéro et nom de rue</p>
+                    <input type="number" name=" CP" [(ngModel)]="user.cp" #saisieCp="ngModel"required pattern="[0-9]{4,5}">
+                    <p class="error" *ngIf="(saisieCp.touched && saisieCp.invalid)">merci d'indiquer votre
+                        code postal</p>
+                    <input type="text" name="ville"[(ngModel)]="user.ville"  #saisieVille="ngModel"required>
+                    <p class="error" *ngIf="(saisieVille.touched && saisieVille.invalid)">merci d'indiquer le nom de votre ville</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+           <!-- hobbies:-->
+           <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-4">
+                <img (click)="editer('hobbies')"  src="./../../../assets/hobbies2.png" ></div>
+            <div class="col-4" *ngIf="!editerHob"><span>{{user.hobbies}}</span></div>
+            <div class="col-4" *ngIf="editerHob">
+                <input type="checkbox" name="couture" [checked]="couture"
+                (change)="ccouture($any($event.target).checked)">couture
+            <input type="checkbox" name="sport" [checked]="sport"
+                (change)="ssport($any($event.target).checked)">sport
+            <input type="checkbox" name="adrenaline" [checked]="adrenaline"
+                (change)="aadrenaline($any($event.target).checked)">adrénaline
+            <input type="checkbox" name="netflix" [checked]="netflix"
+                (change)="nnetflix($any($event.target).checked)">netflix
+            <input type="checkbox" name="terrasse" [checked]="terrasse"
+                (change)="tterrasse($any($event.target).checked)">terrasses et cafés
+            <input type="checkbox" name="musique" [checked]="musique"
+                (change)="mmusique($any($event.target).checked)">musique
+            </div>
+        </div>
+        </div>
+ </div>
+    <div class="row vert">
+        <a routerLink={{routerlink}}>
+            <button (click)="validerChangement()">VALIDER
+                <img src="./../../../assets/vert-gris.png" alt="valider">
+            </button>
+        </a>
+    </div>
+</div>

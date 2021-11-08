@@ -1,0 +1,28 @@
+   <div class="message" *ngIf="messageVisible">
+  
+    {{msgAlerte}}  <img (click)="msgDisparait()" src="./../../../assets/suppr.png" alt="croix">
+ </div> 
+
+<ul *ngFor="let membre of membres">
+  
+    <li class="{{membre.statut}}">
+        {{membre.pseudo}} ({{membre.prenom}} {{membre.nom|uppercase}})
+
+        <a [routerLink]="'/profilmembre/'+ membre.pseudo ">
+            <img (click)="clicOeil(membre.pseudo)" src="./../../../assets/oeil.png" alt="oeil">
+        </a>
+
+        <img *ngIf="membre.quelLogo ==='plus'" (click)="ajouter(membre.pseudo)" src="./../../../assets/plus.png" alt="plus">
+        <img *ngIf="membre.quelLogo === 'attente'" src="./../../../assets/attente.png" alt="attendre">
+        <img *ngIf="membre.quelLogo === 'invitt'"  src="./../../../assets/inviteChat.png" alt="invitation">
+
+        <a *ngIf="niveau===1" routerLink="/editer">
+            <img (click)="clicCrayon(membre.pseudo)" src="./../../../assets/crayon.png" alt="crayon">
+        </a>
+
+        <img *ngIf="niveau === 1" src="./../../../assets/poubelle.png" alt="poubelle"
+            (click)="supprProfil(membre.pseudo)">
+    </li>
+
+</ul>
+

@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <!-- barre du haut : -->
+    <div class="row grisclair"> <!-- les logo -->
+        <div class="col-1 admin"> <a routerLink="/admin"><img src="./../../../assets/admin.png" alt="admin"></a> </div>
+        <div class="col-2 d-flex justify-content-around align-items center"><img src="./../../../assets/total2.png" alt="membres d'un groupe"></div>
+        <div class="col-2 d-flex justify-content-around align-items center"><img src="./../../../assets/connect2.png" alt="membre connecté"></div>
+        <div class="col-2 d-flex justify-content-around align-items center"><img src="./../../../assets/publi.png" alt="publication"></div>
+        <div class="col-2 d-flex justify-content-around align-items center"><img src="./../../../assets/enveloppe2.png" alt="enveloppe"></div>
+        <div class="col-2 d-flex justify-content-around align-items center"><img src="./../../../assets/bulles.png" alt="bulle de conversation"></div>
+        <div class="col-1 d-flex justify-content-around align-items center" >
+            <a routerLink="/apropos"><img (mouseover)="clair()" (mouseout)="fonce()" src="{{src2}}" alt="point d'interrogation"></a></div>
+    </div>
+    <div class="row grisclair" style="text-align: center;"> <!-- les intitulés -->
+        <div class="col-2 label">membres inscrits</div>
+        <div class="col-2 label">membres connectés</div>
+        <div class="col-2 label">publications</div>
+        <div class="col-2 label">messages privés</div>
+        <div class="col-2 label">échanges sur le chat</div>
+        <div class="col-2 label">à propos</div>
+    </div>
+    <div class="row grisclair" style="text-align: center; color: beige; font-weight: bold; font-size: 2em;"> <!-- les chiffres -->
+        <div class="col-1 "></div>
+        <div class="col-2">{{nbMbTotal}}</div>
+        <div class="col-2 ">{{nbMbConnect}}</div>
+        <div class="col-2">{{nbComm}}</div>
+        <div class="col-2">{{nbMsg}}</div>
+        <div class="col-2"> {{nbChat}}</div>
+        <div class="col-1 "></div>
+    </div>
+
+<!-- logo principal et bienvenue : -->
+    <div class="row vert">
+        <div class="col-12">
+            <p class="titre">Bienvenue sur Resalliance</p>
+            <img src="./../../../assets/poignee.png" alt="poignée de mains">
+        </div>
+   </div>
+<!-- se connecter : -->
+
+<div class="row beige">
+    <div class="col-12">
+       
+        <img *ngIf="!choixVisible"(mouseover)="orange()"(mouseout)="vert()" (click)='seConnecter()'  src="{{src}}" alt="bouton de connexion">
+        <div *ngIf="choixVisible" class="row">
+            <div class="col-12 col-md-6"><a routerLink="/inscription"><button>JE SUIS NOUVEAU</button></a> </div>
+            <div class="col-12 col-md-6"><a routerLink="/connexion"><button>JE SUIS DEJA INSCRIT</button></a> </div>
+        </div>
+    </div>
+</div>
+</div>

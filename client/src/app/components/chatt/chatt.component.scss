@@ -1,0 +1,65 @@
+.connect  {
+    list-style-image: url(./../../../assets/connect.png);
+    background-color:rgb(252,246,229);
+    border: 2px solid rgb(181,181,181);
+    border-radius: 15px;
+    color: rgb(84,84,84);
+    font-weight: bold;
+    width: 40%;
+
+  }
+.deconnect  {
+    list-style-image: url(./../../../assets/deconnect.png);
+  }
+  .alerteChat{
+    padding: 5vh;
+    text-align: center;
+    font-weight: bold;
+  }
+//couleurs:
+.gris{
+  background-color: rgb(84,84,84);
+}
+.grisclair {
+  background-color:rgb(181,181,181); 
+}
+.orange{
+  background-color: #ff914d;
+}
+.beige{
+  background-color: rgb(252,246,229);
+  color:rgb(84,84,84);
+}
+.vert{
+  background-color: rgb(204,232,204);
+}
+
+//taille, logo etc :
+.logo img {
+max-height: 3em;
+}
+a{
+  text-decoration: none;
+}
+span{
+  color: rgb(181,181,181);
+}
+.logo img:hover + span{
+  color: rgb(252,246,229);
+  font-weight: bold;
+}
+.logomoyen img{
+  max-height: 5em;
+}
+.logomoyen img:hover{
+border: 4px #ff914d solid;
+border-radius: 50%;
+}
+.logoMini img{
+  max-height: 2em;
+}
+.container{
+  width: 100vw;
+  height: 100vh;
+  border: rgb(84,84,84) solid 5vh;
+}

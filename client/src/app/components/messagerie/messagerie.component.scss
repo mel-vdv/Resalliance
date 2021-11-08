@@ -1,0 +1,92 @@
+//messages d'erreurs:
+.error{
+    color: #ff914d;
+    font-weight: bold;
+}
+.ng-touched .ng-valid {
+    background-color: rgb(204,232,204);
+
+}
+// les couleurs : 
+.gris{
+    background-color: rgb(84,84,84);height: 3em;
+}
+.grisclair {
+    background-color:rgb(181,181,181); 
+    height: 8vh;
+}
+.beige{
+    background-color: rgb(252,246,229);
+}
+.vert{
+    background-color: rgb(204,232,204);
+}
+.orange{
+    background-color: #ff914d;
+}
+// les liens: 
+a{
+    color: rgb(84,84,84);
+    font-weight: bold;
+    text-decoration: none;
+}
+a:hover{
+    color: #ff914d;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+//tailles des logo et zones : 
+.grisclair img, .vert img{
+    height: 7vh;
+}
+.vert{
+    height: 13vh;
+}
+.livres{
+    height: 15vh;
+}
+.livres img{
+    height: 13vh;
+}
+img[alt='poubelle']{
+    height: 4vh;
+}
+.liste{
+    min-height: 65vh;
+}
+////////////////////////////////////
+
+span{
+    color: #ff914d;
+    font-weight: bold;
+  
+}
+.message{
+    border: 2px solid rgb(84,84,84);
+
+}
+button{
+    background-color:rgb(252,246,229); 
+    color: rgb(84,84,84);    
+}
+button:hover{
+    color: rgb(252,246,229);
+    font-weight: bold;
+    background-color: #ff914d;
+}
+// table:
+table{
+    border-collapse: collapse;
+    width: 80vw;
+    margin: auto;
+    margin-top: 10vh;
+}
+th{
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+td,th{
+    text-align: center;
+    border: rgb(84,84,84) 1px solid;
+}

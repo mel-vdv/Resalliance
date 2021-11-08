@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <!--barre du haut: retour profil / accueil :-->
+    <div class="row grisclair">
+        <div class="col-6 d-flex align-items-center justify-content-center"><a routerLink="/profil"><img
+                    src="./../../../assets/profil-connect.png" alt=""></a></div>
+        <div class="col-6 d-flex align-items-center justify-content-center"><img (click)="deco()"
+                src="./../../../assets/deconnexion2.png" alt=""></div>
+    </div>
+    <!-- new conversation : -->
+    <div class="row vert">
+        <div class="col-12 newDiscussion d-flex align-items-center justify-content-center">
+            <a routerLink="/newDiscussion">
+                <img src="./../../../assets/plus2.png" alt=""> CREER UNE NOUVELLE DISCUSSION </a>
+        </div>
+    </div>
+    <!-- liste des thèmes : -->
+    <div class="row beige">
+        <div class="col-12 livres d-flex align-items-center justify-content-center">
+            <!--titre-->
+            <img src="./../../../assets/livres.png" alt="livres"> BOITE DE RECEPTION :
+        </div>
+    </div>
+    <div *ngIf="sure" class="row beige message">
+        <div class="col-12">
+            <!-- message-->
+            <p> <span>Cette discussion sera supprimée définitivement.
+                    Confirmez-vous votre choix?</span>
+            </p>
+        </div>
+        <div class="col-4 offset-4">
+            <button (click)="confirm()">OUI</button><button (click)='annul()'>NON</button>
+        </div>
+    </div>
+    <div class="row beige liste">
+        <!-- liste des themes-->
+        <table>
+            <thead>
+                <th>créateur</th>
+                <th> thème</th>
+                <th>actions</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let discu of discussions">
+                    <td>{{discu.createur}} </td>
+                    <td><a [routerLink]=" '/discussion/'+ discu.theme ">{{discu.theme}}</a></td>
+                    <td><img *ngIf='niveau===1 || quiEstCo=== discu.createur' class="poubelle"
+                            src="./../../../assets/poubelle.png" alt="poubelle"
+                            (click)="deleteDisc(discu.createur, discu.theme)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

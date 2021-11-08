@@ -1,0 +1,124 @@
+@font-face {
+    font-family: 'Permanent Marker';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/permanentmarker/v10/Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cfw.woff2) format('woff2');
+  }
+
+// LES COULEURS DE FOND : -----------------------------
+
+.gris{
+    background-color: rgb(84,84,84);
+}
+.grisclair {
+    background-color:rgb(181,181,181);
+}
+.beige{
+    background-color: rgb(252,246,229);
+}
+.vert{
+    background-color: rgb(204,232,204);
+}
+.orange{
+    background-color: #ff914d;
+}
+
+// tailles des logo: 
+.gris img{
+    height: 7vh;
+}
+.grisclair img, .beige img {
+    height: 12vh;
+}
+// police: 
+.gris span{
+    font-family: "Permanent Marker";
+    color: #ff914d;
+    font-size: 5vh;
+}
+// d flex et positionnement :
+.grisclair{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.gris img, .gris span{
+    display: block;
+    margin: auto;
+    padding: auto;
+}
+.minilogo{
+    height: 3vh;
+}
+// les TAILLES des ZONES :
+// grand ecran : 
+@media only screen and (min-width: 601px){
+    .mobile{
+        display: none;
+    }
+    .navig {
+        height: 8vh;
+    }
+    .prive{
+       min-height: 25vh;
+    }
+    .public{
+        min-height: 60vh;
+    }
+    .bibi {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .bibi img{
+        height: 10vh;
+    }
+   //.profil img{
+    //    height: 20vh;
+ //   }
+    .logoMoyen{
+        height: 10vh;
+    }
+    .logoMini{
+        height: 4vh;
+    }
+}
+// ecran mobile : 
+@media only screen and (max-width: 600px){
+    .bureau{
+        display: none;
+    }
+    .navig {
+        height: 8vh;
+    }
+    .logoMoyen{
+        height: 5vh;
+    }
+    .logoMini{
+        height: 4vh;
+    }
+   
+}
+// TAILLES DES LOGO :
+.profil img{
+    border: solid 5px rgb(181,181,181);
+    height: 15vh;
+    width: 15vh;
+    display: block;
+}
+.voirAmis img:nth-child(2){
+    height: 5vh;
+}
+.voirAmis li img {
+    height: 5vh;
+}
+.com li img {
+    height: 4vh;
+}
+.mobile div:nth-child(1) img, .mobile div:nth-child(3) img{
+    height: 6vh;
+}
+.crpb img {
+    height: 8vh;
+}

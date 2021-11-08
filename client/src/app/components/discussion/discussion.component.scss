@@ -1,0 +1,153 @@
+//police:
+@font-face {
+    font-family: 'Permanent Marker';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/permanentmarker/v10/Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cfw.woff2) format('woff2');
+      }
+
+// les couleurs : 
+.gris{
+    background-color: rgb(84,84,84);
+    height: 8vh;
+}
+.grisclair {
+    background-color:rgb(181,181,181); 
+    text-transform: uppercase;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+.beige{
+    background-color: rgb(252,246,229);
+}
+.vert{
+    background-color: rgb(204,232,204);
+}
+.orange{
+    background-color: #ff914d;
+}
+
+// les survolages:
+span{
+    color: rgb(84,84,84);
+}
+a{
+    color: rgb(84,84,84);
+    font-weight: bold;
+    text-decoration: none;
+}
+.gris img:hover +span, a:hover{
+    color: rgb(252,246,229);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+input{
+    color: rgb(84,84,84);
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    //display: block;
+    //justify-content: center;
+   // align-items: center;
+
+   // padding: auto;
+   // margin: auto;
+
+}
+input:hover{
+    color: rgb(252,246,229);
+    font-weight: bold;
+    background-color: #ff914d; 
+}
+//tailles des zones : 
+.gris img {
+    height: 7vh;
+}
+.container-fluid{
+    min-height: 100vh;
+}
+
+// taille des logos:
+
+.titre{
+    text-align: center;
+    color: #ff914d;
+    font-family: "Permanent Marker";
+    font-size: 5vh;
+}
+
+.msg{
+    background-color: rgb(252,246,229);
+    border-radius: 10px;
+    padding-left:1em;
+    padding-right: 1em; 
+    text-transform: lowercase;
+    text-overflow: clip;
+    
+}
+.auteur{
+    color: rgb(252,246,229);
+    font-weight: 600;
+}
+li{
+    list-style: none;
+}
+
+// les boutons : 
+textarea{
+    background-color: rgb(252,246,229);
+    display: block;
+    width: 90%;
+    margin: auto;
+}
+button, .envoyer {
+    color: rgb(84,84,84);
+    background-color: rgb(252,246,229);
+    text-align: center;
+    display: block;
+    margin: auto;  
+}
+.envoyer{
+   // width: 90%;
+}
+button{
+  //  width: 20%;
+}
+button:hover{
+    color: rgb(252,246,229);
+    background-color: #ff914d;
+    font-weight: bold;
+}
+// invisible sur mobile:
+@media only screen and (max-width:600px){ 
+.gris span{
+    display: none;
+}
+.bureau{
+    display: none;
+}
+}
+@media only screen and (min-width:601px){ 
+.mobile{
+    display: none;
+}
+}
+.centre img{
+    height: 15vh;
+}
+.centre{
+
+    min-height: 20vh;
+
+}
+.vert div ul{
+    display: flex;
+    flex-direction:column;
+   
+}
+img[alt="poubelle"]{
+    height: 3vh;
+    padding-left: 1vh;
+}
+

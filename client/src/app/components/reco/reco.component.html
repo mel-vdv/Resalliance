@@ -1,0 +1,12 @@
+<p class="message">{{message}}</p>
+<!-- cas 1 : pas de recommandation en cours-->
+<div *ngIf="recos.length===0"><p>pas de recommandations en cours</p></div>
+<!-- cas 2 : liste des recommmandations en cours-->
+<div *ngIf="recos.length>0">
+<ul *ngFor="let reco of recos">
+    <li>
+        {{reco.recommandeur}} vous a recommandé {{reco.recommande}}.
+        <button (click)="ajouter(reco.recommande, reco.recommandeur)">envoyer une demande d'amis</button>
+        <button (click)="ignorer(reco.recommande, reco.recommandeur)"> ignorer cette recommandation</button>
+    </li>
+</ul></div>

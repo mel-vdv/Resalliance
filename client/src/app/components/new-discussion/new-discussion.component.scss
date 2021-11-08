@@ -1,0 +1,109 @@
+
+// les couleurs : 
+.gris{
+    background-color: rgb(84,84,84);
+    height: 8vh;
+}
+.grisclair {
+    background-color:rgb(181,181,181); 
+    text-transform: uppercase;
+
+}
+.beige{
+    background-color: rgb(252,246,229);
+}
+.vert{
+    background-color: rgb(204,232,204);
+}
+.orange{
+    background-color: #ff914d;
+}
+.select{
+    color: #ff914d;
+    font-weight: bold;
+}
+.deselect{
+    color:black;
+    font-weight: normal;
+}
+// les survolages:
+a{
+    color: rgb(84,84,84);
+    font-weight: bold;
+    text-decoration: none;
+   // align-items: center;
+}
+a:hover{
+    color: rgb(252,246,229);
+    font-weight: bold;
+    text-decoration: none;
+}
+input{
+    color: rgb(84,84,84);
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+   // padding: auto;
+    margin: auto;
+
+}
+input:hover{
+    color: rgb(252,246,229);
+    font-weight: bold;
+    background-color: #ff914d; 
+}
+//tailles des logo:
+.gris img{
+    height: 7vh;
+    
+}
+.gris div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+// messages: 
+label{
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    color: #ff914d;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+}
+li {
+    list-style: none;
+}
+.msg{
+   // text-align: center;
+   justify-content: center;
+    align-items: center;
+    height: 4em;
+    color:rgb(252,246,229) ;
+    letter-spacing: 0.2em;
+    font-weight: bold;
+}
+form {
+  //  align-items: center;
+    //justify-content: center;
+   display: block;
+   width: 60%;
+    margin:auto;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+.form{
+    min-height: 84vh;
+}
+// invisible sur tel mobile :
+@media only screen and (max-width : 600px){
+    span{
+        display: none;
+    }
+}

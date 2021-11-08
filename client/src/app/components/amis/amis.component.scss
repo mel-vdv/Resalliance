@@ -1,0 +1,35 @@
+.alerte{
+    color: red;
+    border: solid 1px black;
+}
+.connect  {
+    list-style-image: url(./../../../assets/connect.png);
+  }
+.deconnect  {
+    list-style-image: url(./../../../assets/deconnect.png);
+  }
+ .logos img{
+   display: block;
+  height: 3vh;
+}
+.logos{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+ @media only screen and (min-width:601px){
+.logos{
+  width: 30vw;
+}
+ }
+
+ @media only screen and (max-width:600px){
+   .logos{
+     width: 80vw;
+   }
+}
+
+img[alt='croix']{
+  height: 4vh;
+}

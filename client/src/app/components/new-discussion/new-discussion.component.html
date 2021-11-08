@@ -1,0 +1,42 @@
+<div class="container-fluid grisclair">
+    <!--barre du haut: retour liste des thèmes / profil / accueil :-->
+    <div class="row gris">
+    
+                <div class="col-4 "><a routerLink="/profil"><img class="logo" src="./../../../assets/profil-connect2.png"
+                            alt=""> <span> profil</span></a></div>
+                <div class="col-4"><a routerLink="/messagerie"><img class="logo" src="./../../../assets/livre.png"
+                            alt=""><span>liste</span> </a></div>
+                <div class="col-4">
+                   <img (click)='deco()' src="./../../../assets/deconnexion2.png" alt="">
+                </div>
+           
+    </div>
+    <!--formulaire :-->
+    <div class="row form">
+
+        <div class="col-12 col-md-8 offset-md-2 beige formulaire">
+            <form #newDiscussion="ngForm" (ngSubmit)="creer(newDiscussion)" autocomplete="off">
+
+                <label>THEME : </label><br>
+                <input style="width: 100%;" type="text" name="newTheme" required [(ngModel)]="newTheme" required #saisieNewTheme="ngModel">
+                <p class="error" *ngIf="(saisieNewTheme.touched && saisieNewTheme.invalid)">merci de choisir un thème.
+                </p>
+                <br><br>
+                <label>LES PARTICIPANTS : </label>
+                <ul *ngFor='let ami of listeInvites'>
+                    <li>
+                        <img src="{{ami.src}}" (click)="cocher(ami.pseudo)">
+                        <span class="{{ami.classe}}">{{ami.pseudo}}</span>
+                    </li>
+                </ul>
+
+                <input type="submit" value="CREER">
+
+            </form>
+        </div>
+    </div>
+    <!--barre du bas-->
+    <div class="row grisclair msg">{{message}}</div>
+
+
+</div>
