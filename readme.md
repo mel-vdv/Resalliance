@@ -13,7 +13,7 @@ naissance, adresse postale, adresse email, numéro de téléphone, liste de hobb
   *  Zone publique : voir, les publications des autres membres, publier sur le mur, répondre à des 
 commentaires
 * Système de notification par email
-* Système de recherche d’un membre enregistré (par nomprénom/pseudo)
+* Système de recherche d’un membre enregistré (par nom/prénom/pseudo)
 * Gestion des liens entre utilisateurs : inviter un membre à rejoindre sa liste d'amis, recommander un ami à 
 un autre ami, retirer un ami de sa liste.
 *  Accès à un espace chat en live, ainsi qu'une messagerie privée 
